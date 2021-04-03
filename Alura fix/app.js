@@ -1,7 +1,6 @@
 function adicionarFilme() {
 
-    var campoFilmeFavorito = document.querySelector('#filme')
-    var filmeFavorito = campoFilmeFavorito.value
+    const filmeFavorito = document.querySelector('#filme').value
 
     if (filmeFavorito.endsWith('.jpg')) {
 
@@ -10,13 +9,18 @@ function adicionarFilme() {
 
         alert("Imagem Inválida")
     }
-    campoFilmeFavorito.value = ""
-
 }
 
 function listarFilmesNaTela(filme) {
 
-    var listaFilmes = document.querySelector('#listaFilmes')
-    var elementoFilme = "<img src=" + filme + ">"
-    listaFilmes.innerHTML = listaFilmes.innerHTML + elementoFilme
+    const listaFilmes = document.querySelector('#listaFilmes')
+    const elementoFilme = `<img src=${filme} >`
+    listaFilmes.innerHTML += elementoFilme
+    limparCampo()
+}
+
+function limparCampo() {
+
+    var filmeFavorito = document.querySelector('#filme')
+    filmeFavorito.value = ""
 }
